@@ -8,7 +8,7 @@
 
   <p align="center">
     <br />
-    <a href="https://github.com/NutriMatch/NutriMatch-MobileDev/releases/download/Release/NutriMatch1.0.0.apk">View Demo</a>
+    <a href="https://raw.githubusercontent.com/codernewbie04/TheMovieDB-Android/development/assets/app-debug.apk">View Demo</a>
   </p>
 </div>
 

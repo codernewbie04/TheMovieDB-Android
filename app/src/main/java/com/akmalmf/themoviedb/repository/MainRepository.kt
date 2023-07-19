@@ -4,7 +4,9 @@ import androidx.lifecycle.liveData
 import com.akmalmf.themoviedb.abstraction.data.RemoteDataSource
 import com.akmalmf.themoviedb.abstraction.data.Resource
 import com.akmalmf.themoviedb.model.GenresModel
+import com.akmalmf.themoviedb.model.MovieDetailModel
 import com.akmalmf.themoviedb.model.MoviesModel
+import com.akmalmf.themoviedb.model.RatingsModel
 import com.akmalmf.themoviedb.service.ApiService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -40,4 +42,18 @@ class MainRepository @Inject constructor(
             api.movies(genreId, page)
         })
     }.flowOn(Dispatchers.IO)
+
+    suspend fun getDetailMovie(movieId: Int): Flow<Resource<MovieDetailModel>> = flow{
+        emit(Resource.loading())
+        emit(safeApiCall {
+            api.movie(movieId)
+        })
+    }
+
+    suspend fun getReviews(movieId: Int, page: Int): Flow<Resource<RatingsModel>> = flow{
+        emit(Resource.loading())
+        emit(safeApiCall {
+            api.review(movieId, page)
+        })
+    }
 }

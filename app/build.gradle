@@ -72,4 +72,7 @@ dependencies {
 
     /* Coil Image Loader */
     implementation("io.coil-kt:coil:2.2.2")
+
+    /* Youtube Player */
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:12.0.0'
 }

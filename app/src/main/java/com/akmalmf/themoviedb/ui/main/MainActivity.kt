@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.akmalmf.themoviedb.abstraction.base.BaseActivity
 import com.akmalmf.themoviedb.abstraction.data.Status
 import com.akmalmf.themoviedb.databinding.ActivityMainBinding
+import com.akmalmf.themoviedb.ui.detail_movie.DetailMovieActivity
 import com.akmalmf.themoviedb.utils.toGone
 import com.akmalmf.themoviedb.utils.toInvisible
 import com.akmalmf.themoviedb.utils.toVisible
@@ -67,7 +68,12 @@ class MainActivity : BaseActivity(){
         }
 
 
-        //trendingAdapter.onItemClick
+        trendingAdapter.onItemClick = {
+            DetailMovieActivity.start(this@MainActivity, it.id)
+        }
+        moviesAdapter.onItemClick = {
+            DetailMovieActivity.start(this@MainActivity, it.id)
+        }
     }
 
     override fun initObservable() {

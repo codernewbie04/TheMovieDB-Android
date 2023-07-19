@@ -6,4 +6,7 @@
     <string name="trending_movies">Trending Movies</string>
     <string name="genres">Genres</string>
     <string name="poster">poster</string>
+    <string name="image_to_play_trailer">image to play trailer</string>
+    <string name="ratings">Ratings</string>
+    <string name="see_all">See All</string>
 </resources>

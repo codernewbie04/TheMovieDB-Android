@@ -4,15 +4,141 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@color/navy_900"
+    tools:context=".ui.main.MainActivity">
 
     <TextView
+        android:id="@+id/textGreeting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/lato_bold"
+        android:text="@string/hai_there"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textSubTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/lato_light"
+        android:text="@string/sub_title"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/textGreeting"
+        app:layout_constraintTop_toBottomOf="@+id/textGreeting" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageProfile"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="24dp"
+        android:src="@drawable/dummy_user"
+        app:layout_constraintBottom_toBottomOf="@+id/textSubTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textGreeting"
+        app:shapeAppearance="@style/ShapeAppearance.TheMovieDB.CircleComponent" />
+
+    <TextView
+        android:id="@+id/textTrendingTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/lato_bold"
+        android:text="@string/trending_movies"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/textSubTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textSubTitle" />
+
+    <ProgressBar
+        android:id="@+id/progressBarTrending"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/rvTrending"
+        app:layout_constraintEnd_toEndOf="@+id/rvTrending"
+        app:layout_constraintStart_toStartOf="@+id/rvTrending"
+        app:layout_constraintTop_toTopOf="@+id/rvTrending" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTrending"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="18sp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textTrendingTitle"
+        tools:itemCount="4"
+        tools:listitem="@layout/item_trending" />
+
+    <TextView
+        android:id="@+id/textGenresTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/lato_bold"
+        android:text="@string/genres"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/rvTrending"
+        app:layout_constraintTop_toBottomOf="@+id/rvTrending" />
+
+    <ProgressBar
+        android:id="@+id/progressBarGenres"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/rvGenres"
+        app:layout_constraintEnd_toEndOf="@+id/rvGenres"
+        app:layout_constraintStart_toStartOf="@+id/rvGenres"
+        app:layout_constraintTop_toTopOf="@+id/rvGenres" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvGenres"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="5sp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textGenresTitle"
+        tools:itemCount="10"
+        tools:listitem="@layout/item_genres" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMovies"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/rvGenres"
+        tools:itemCount="10"
+        tools:listitem="@layout/item_movies" />
+
+    <ProgressBar
+        android:id="@+id/progressBarMovies"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/rvMovies"
+        app:layout_constraintEnd_toEndOf="@+id/rvMovies"
+        app:layout_constraintStart_toStartOf="@+id/rvMovies"
+        app:layout_constraintTop_toTopOf="@+id/rvMovies"
+        app:layout_constraintVertical_bias="1.0" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,9 +1,19 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.TheMovieDB" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.TheMovieDB" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
     <style name="Theme.TheMovieDB" parent="Base.Theme.TheMovieDB" />
+
+    <style name="ShapeAppearance.TheMovieDB.CircleComponent" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/red_400</item>
+        <item name="colorControlActivated">@color/orange_300</item>
+    </style>
 </resources>
